@@ -1,0 +1,247 @@
+/* =========================================
+   1. BRAND VARIABLES & BASE STYLES
+   ========================================= */
+:root {
+  /* Dark Tech Theme Colors */
+  --color-primary: #0f172a;       
+  --color-bg-alt:  #020617;       
+  --color-surface: #1e293b;       
+  
+  /* Neon Accents */
+  --color-accent:   #38bdf8;      
+  --color-accent-2: #8b5cf6;      
+  --color-accent-rgb: 56, 189, 248;
+  
+  /* CHANGE THESE TWO TO PURE WHITE */
+  --color-text:    #ffffff;       
+  --color-muted:   #ffffff;       
+  
+  --font-heading:  'Poppins', sans-serif;
+  --font-body:     'Inter', sans-serif;
+}
+
+/* Add this right below the :root block to force Bootstrap to use your white variable */
+.text-muted {
+  color: var(--color-muted) !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body { 
+  padding-top: 72px; 
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Background Utilities */
+.bg-alt { background-color: var(--color-bg-alt) !important; }
+.bg-surface { background-color: var(--color-surface) !important; }
+
+/* Gradient Text Effect */
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-accent { color: var(--color-accent) !important; }
+.bg-accent-subtle { background-color: rgba(var(--color-accent-rgb), 0.15) !important; }
+
+/* =========================================
+   2. TYPOGRAPHY & UTILITIES
+   ========================================= */
+.section-padding { padding: 6rem 0; }
+
+.eyebrow {
+  color: var(--color-accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+/* =========================================
+   3. COMPONENTS & INTERACTIVITY
+   ========================================= */
+
+/* Navigation Glassmorphism */
+.glass-nav {
+  background: rgba(15, 23, 42, 0.8) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  color: var(--color-text) !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-accent) !important;
+}
+
+/* Buttons */
+.btn-accent {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #020617; /* Dark text for contrast against bright blue */
+  font-weight: 700;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(var(--color-accent-rgb), 0.3);
+}
+
+.btn-accent:hover {
+  background-color: var(--color-accent-2);
+  border-color: var(--color-accent-2);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.btn-outline-accent {
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-accent:hover {
+  background-color: var(--color-accent);
+  color: #020617;
+}
+
+/* Image & Shadow Glows */
+.shadow-glow {
+  box-shadow: 0 0 30px rgba(var(--color-accent-rgb), 0.2);
+  border: 2px solid rgba(var(--color-accent-rgb), 0.3);
+}
+
+.hero-img {
+  transition: transform 0.4s ease;
+}
+
+.hero-img:hover {
+  transform: scale(1.02);
+}
+
+/* Skills Cards */
+.skill-card {
+  background-color: var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--color-accent);
+  box-shadow: 0 10px 30px rgba(var(--color-accent-rgb), 0.15);
+}
+
+.skill-icon {
+  font-size: 3rem;
+  color: var(--color-accent);
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.1);
+  color: var(--color-accent-2);
+}
+
+/* Process Steps */
+.step-number {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+}
+
+/* Work / Portfolio Cards */
+.work-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.work-card img {
+  filter: grayscale(40%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.5) !important;
+}
+
+.work-card:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* Form Inputs */
+.custom-input {
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  color: var(--color-text);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+}
+
+.custom-input:focus {
+  background-color: #0f172a;
+  color: white;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.25);
+}
+
+/* Social Icons */
+.social-icon {
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.social-icon:hover {
+  color: var(--color-accent) !important;
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   4. RESPONSIVE QUERIES
+   ========================================= */
+@media (max-width: 991px) {
+  .hero { 
+    text-align: center; 
+    padding: 6rem 0 3rem; 
+  }
+  
+  .hero h1 { 
+    font-size: 2.8rem; 
+  }
+  
+  .hero-image-wrapper {
+    margin-top: 3rem;
+  }
+}
